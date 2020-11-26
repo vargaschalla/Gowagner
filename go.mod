@@ -1,4 +1,4 @@
-module github.com/202lp2/go2
+module github.com/vargaschalla/Gowagner
 
 // +heroku goVersion go1.14
 go 1.14

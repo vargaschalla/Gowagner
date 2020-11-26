@@ -11,5 +11,5 @@ type Persona struct {
 	Materno         string `json:"materno"`
 	Edad            string `json:"edad"`
 	Fechanacimiento string `json:"fechanacimiento"`
-	Esatadocivil    string `json:"estadocivil"`
+	Estadocivil     string `json:"estadocivil"`
 }
