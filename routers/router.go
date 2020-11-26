@@ -14,7 +14,7 @@ import (
 
 func SetupRouter() *gin.Engine {
 
-	conn, err := connectDBmysql()
+	conn, err := connectDB()
 	if err != nil {
 		panic("failed to connect database: " + err.Error())
 		//return
@@ -63,6 +63,18 @@ func connectDBmysql() (c *gorm.DB, err error) {
 	if err != nil {
 		panic("failed to connect database: " + err.Error())
 	}
+
+	return conn, err
+}
+
+func connectDB() (c *gorm.DB, err error) {
+	////dsn := "docker:docker@tcp(mysql-db:3306)/test_db?charset=utf8mb4&parseTime=True&loc=Local"
+	//dsn := "docker:docker@tcp(localhost:3306)/test_db?charset=utf8mb4&parseTime=True&loc=Local"
+	//conn, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
+
+	dsn := "user=artuqahvnfvpxi password=4350a71d518b779f4f83fb21efaecf2f1046ab9512a9123438f58ba6c4615b28 host=ec2-54-157-88-70.compute-1.amazonaws.com dbname=d161cscs5jpnth port=5432 sslmode=require TimeZone=Asia/Shanghai"
+	//dsn := "user=postgres password=postgres2 dbname=users_test host=localhost port=5435 sslmode=disable TimeZone=Asia/Shanghai"
+	conn, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 
 	return conn, err
 }
